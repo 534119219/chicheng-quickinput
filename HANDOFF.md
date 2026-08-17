@@ -16,7 +16,7 @@
 
 - 本地目录：`D:\Harness\chicheng-vault`（已 `git init`，分支 `main`，remote=`https://github.com/534119219/chicheng-quickinput.git`）
 - **git 身份**：`534119219` / `534119219@users.noreply.github.com`（与其他 chicheng-* 项目一致）
-- 最新提交：`7f5f78e`（9 个提交；`7f5f78e` 已提交未推送，其余全部已推送）
+- 最新提交：`8ab0268`（9 个提交，全部已推送，工作区干净）
 - profile 安装：`C:\Users\TJ\.dsh\profiles\web`，依赖为 `file:D:/Harness/chicheng-vault`，经 junction 链接（`D:\Harness\relink-plugins.ps1`）保证编辑即时生效；`dsh.profile.bundles` 已含 `chicheng-vault`（当时 pnpm 因 `@google/genai` 的 `ERR_PNPM_IGNORED_BUILDS` 退出码 1，bundles 需手动补，勿依赖 `dsh plugin add` 自动完成）
 - **生效规则**：改 `lib/client.js` → 浏览器 **Ctrl+F5** 即可；改 `lib/index.js`（宿主）→ **必须手动重启 dsh web**（绝不要自己重启，用户手动执行）
 - **GitHub 推送**：用一次性 Basic auth 避免 token 落盘：
@@ -89,7 +89,7 @@ node test/client.load.mjs    # 客户端 bundle 结构（6 项）
 
 ## 六、当前状态与数据
 
-- Git：`7f5f78e`（chore: 清理 VaultPanel 死代码与未用 import，69 行删除）**已提交未推送**；工作区干净
+- Git：`8ab0268`（docs 更新交接摘要）已推送，工作区干净；死代码清理 `7f5f78e` 亦已推送
 - 用户数据：`~/.dsh/vault/store.json` = **v2**，1 条私密记录（GitHub），enc 结构正常；vault 为空的历史问题已过
 - `~/.dsh/vault/suggestions.json`：待收录队列（数量可变）
 - 运行中的 dsh web 需注意：**上一轮宿主端改动（IPv6 修复）需用户重启 dsh web 后生效**
