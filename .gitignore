@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# harness / runtime artifacts
+*.tmp

@@ -1,0 +1,9 @@
+# chicheng-vault bundle patch
+#
+# Mounts the vault plugin into the profile loader. `name` must resolve from
+# the profile node_modules (installed via `dsh plugin --profile <name> add
+# <this package>`), and the client half is served by the host at
+# /plugins/chicheng-vault/client.js.
+- insert:
+    - id: chicheng-vault
+      name: 'chicheng-vault'
