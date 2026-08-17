@@ -86,6 +86,20 @@ const { scanText, extractMessageText } = I;
   assert("ipv4 detected", ips.includes("192.168.1.10") && ips.includes("8.8.8.8"), JSON.stringify(found));
 }
 
+// ---- ips: IPv6 识别，且 HH:MM:SS 时间不被误判为服务器
+{
+  const found6 = scanText("IPv6 地址 2001:db8::1 与 fe80::1，完整 2001:db8:85a3:0:0:8a2e:370:7334");
+  const v6 = found6.filter((f) => f.category === "服务器").map((f) => f.value);
+  assert("ipv6 detected", v6.some((x) => x.indexOf("2001:db8::1") !== -1), JSON.stringify(v6));
+  assert("ipv6 link-local detected", v6.some((x) => x.indexOf("fe80::1") !== -1), JSON.stringify(v6));
+  const foundT = scanText("今天 07:44:23 开始执行，截止 23:59:59");
+  const tHits = foundT.filter((f) => f.category === "服务器" || f.category === "IP" || f.category === "网址");
+  assert("hh:mm:ss time not detected", tHits.length === 0, JSON.stringify(foundT));
+  const foundT2 = scanText("启动于 07:44，结束于 18:30");
+  const t2 = foundT2.filter((f) => f.category === "服务器");
+  assert("hh:mm time not detected", t2.length === 0, JSON.stringify(foundT2));
+}
+
 // ---- addresses
 {
   const found = scanText("发货到 广东省深圳市南山区科技园南路88号 或 上海市浦东新区张江高科技园区博云路2号");
