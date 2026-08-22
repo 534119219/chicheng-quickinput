@@ -16,7 +16,7 @@
 
 - 本地目录：`D:\Harness\chicheng-vault`（已 `git init`，分支 `main`，remote=`https://github.com/534119219/chicheng-quickinput.git`）
 - **git 身份**：`534119219` / `534119219@users.noreply.github.com`（与其他 chicheng-* 项目一致）
-- 最新提交：`941a786`（10 个提交，全部已推送，工作区干净）
+- 最新提交：`41b7d7d`（14 个提交，全部已推送，工作区干净）
 - profile 安装：`C:\Users\TJ\.dsh\profiles\web`，依赖为 `file:D:/Harness/chicheng-vault`，经 junction 链接（`D:\Harness\relink-plugins.ps1`）保证编辑即时生效；`dsh.profile.bundles` 已含 `chicheng-vault`（当时 pnpm 因 `@google/genai` 的 `ERR_PNPM_IGNORED_BUILDS` 退出码 1，bundles 需手动补，勿依赖 `dsh plugin add` 自动完成）
 - **生效规则**：改 `lib/client.js` → 浏览器 **Ctrl+F5** 即可；改 `lib/index.js`（宿主）→ **必须手动重启 dsh web**（绝不要自己重启，用户手动执行）
 - **GitHub 推送**：用一次性 Basic auth 避免 token 落盘：
@@ -89,7 +89,7 @@ node test/client.load.mjs    # 客户端 bundle 结构（6 项）
 
 ## 六、当前状态与数据
 
-- Git：`941a786`（fix: 可收录面板私密内容掩码显示）已推送，工作区干净
+- Git：`41b7d7d`（fix: package.json 仓库地址 / README 补 GitHub 安装命令）已推送，工作区干净
 - 用户数据：`~/.dsh/vault/store.json` = **v2**，1 条私密记录（GitHub），enc 结构正常；vault 为空的历史问题已过
 - `~/.dsh/vault/suggestions.json`：待收录队列（数量可变）
 - 运行中的 dsh web 需注意：**上一轮宿主端改动（IPv6 修复）需用户重启 dsh web 后生效**
@@ -103,6 +103,7 @@ node test/client.load.mjs    # 客户端 bundle 结构（6 项）
 5. 潜在优化：`insertIntoComposer` 对 contenteditable 只做追加末尾（DSH 实际用 textarea，影响小）
 6. 若 DSH 升级导致 slot 名/`settings.section` 渲染变化，需回归验证设置页分区
 7. ✅ 已完成（`941a786`）：可收录 banner/modal 私密项（密钥类）不再直接展示明文，改为 `前4 + **** + 后4` 掩码；收录时预设名称同样掩码
+8. 🔧 awesome-dsh-plugin 收录核查（2026-08-23）：`dsh.bundle`/cordis.patch/提交数/topic 均达标；已修 `package.json` repository 指向实际 repo（此前 404）、README 补 GitHub 安装命令（`41b7d7d`）。待做：向 awesome-dsh-plugin 提交 `data/plugins/534119219__chicheng-quickinput.yml`（category 建议 `ui`）+ 重新生成 README + PR
 
 ## 八、常用操作速查
 
