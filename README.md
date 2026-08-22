@@ -40,6 +40,14 @@
 
 ## 安装（以 web profile 为例）
 
+从 GitHub 安装：
+
+```bash
+dsh plugin --profile web add 534119219/chicheng-quickinput
+```
+
+本地开发安装（编辑源码即时生效）：
+
 ```bash
 cd /d/Harness/chicheng-vault
 dsh plugin --profile web add file:D:/Harness/chicheng-vault

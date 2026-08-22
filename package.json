@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/534119219/chicheng-vault.git"
+    "url": "git+https://github.com/534119219/chicheng-quickinput.git"
   },
   "bugs": {
-    "url": "https://github.com/534119219/chicheng-vault/issues"
+    "url": "https://github.com/534119219/chicheng-quickinput/issues"
   },
-  "homepage": "https://github.com/534119219/chicheng-vault#readme",
+  "homepage": "https://github.com/534119219/chicheng-quickinput#readme",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
